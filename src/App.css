@@ -1,38 +1,266 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+body{
+    display:grid;
+    grid-template-areas:
+    "empty-header header right-side-1"
+    "empty-area main right-side-2"
+    'recent_work empty_slider-1 empty_slider-2'
+    'footer footer footer';
+    height:100vh;
+    width:100vw;
+    margin:0;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns:0.5fr 3fr 2fr ;
+}
+body ::selection{
+    background-color:  rgb(117, 117, 117);
+    color: white ;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.empty-header{
+    grid-area: empty-header;
+}
+.header{
+    padding: 38px 38px 0 0;
+    background:white;
+    grid-area:header;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo {
+    width: 60px; 
+    height: 50px;
+    padding-top: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.sidebar-top-button{
+    display: inline-block;
+    padding-top:35px;
+    height: 35px;
+    width: 150px;
+    font-size: 15px ;
+    font-weight:400;
+    text-decoration: none;
+    color:rgb(148, 146, 146);
+    font-family: 'Josefin Sans', sans-serif;
+}
+.sidebar-top {
+    position: relative;
+    display: inline-block;
+}
+.sidebar-top-content {
+    margin: 0;
+    padding: 0;
+    display: none;
+    position: absolute;
+    background-color: rgba(179, 176, 176, 0.1);
+    width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(54, 54, 54, 0.2);
+    font-family: 'Josefin Sans', sans-serif;
+    z-index: 1;  
 }
 
-.App-link {
-  color: #61dafb;
+.sidebar-top-content li{
+    list-style-type:none;
+}
+.sidebar-top-content a{
+    text-decoration: none;
+    display: block;
+    color:rgb(252, 191, 191);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sidebar-top-content a:hover {
+    color: rgb(248, 77, 77);
+    transition: all ease 400ms;
+    font-weight: 500;
+}
+
+.sidebar-top:hover .sidebar-top-content {
+    display: block;
+    transition: all ease 400ms;
+}
+
+.sidebar-top:hover .sidebar-top-button {
+    color: rgb(247, 52, 52);
+    font-weight: 500;
+    transition: all ease 400ms; 
+    
+}
+
+.empty-area{
+    grid-area: empty-area;
+    background-color: white;
+}
+
+.main{
+    grid-area:main;
+    display:grid;
+    grid-template-areas:
+    'tagline-area tagline-area'
+    'sidebar-left text-area';
+    grid-template-rows:2.5fr 1fr;
+    grid-template-columns:1fr 9fr;
+}
+
+.tagline-area{
+    grid-area:tagline-area;
+    background-color: white;
+    text-align: left;
+    position: relative;  
+}
+.main-tagline{
+    margin-top: 120px;
+    margin-bottom: 50px;
+    font-size: 85px;
+    font-family: 'Josefin Sans', sans-serif; 
+}
+
+#sidebarLeft{
+    padding:17px 0 45px 5px;
+    grid-area:sidebar-left;
+    background-color: white;
+    display: flex;
+    flex-direction:column;
+    justify-content:flex-start;
+}
+#sidebarLeft div{
+    font-size: 11px ;
+    font-weight: bold;
+    text-align: left;
+    color:rgb(92, 89, 89);
+    font-family: 'Josefin Sans', sans-serif;
+    padding-bottom: 12px;
+}
+#sidebarLeft div:hover {
+    color: rgb(247, 52, 52);
+    font-size: 11px ;
+    transition: all ease 150ms; 
+    z-index: 2;      
+}
+
+.text-area{
+    grid-area:text-area;
+    background-color:white;
+}
+.main-text {
+    margin:10px ;
+    padding-right: 20px;
+    font-size: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: rgb(117, 117, 117); 
+}
+
+.right-side-1, .right-side-2{
+    background-color : rgb(32, 32, 32);
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    justify-content:space-around;      
+}
+.right-side-1{
+    padding-top: 38px;
+    grid-area:right-side-1;
+}
+.button-hire-us {
+    background-color:rgb(247, 52, 52);
+    border: 1px solid rgb(247, 52, 52);
+}
+.button-hire-us a{
+    display: inline-block;
+    width:auto;
+    padding: 15px 40px ;
+    font-size: 15px ;
+    font-family: 'Heebo', sans-serif;
+    color: white;
+    text-decoration:none;
+}
+.button-hire-us:hover{
+    background-color: white;
+    border: 1px solid gray;
+    transition: all ease 500ms;   
+}
+.button-hire-us:hover a{
+    color:rgb(247, 52, 52);
+    font-weight: 600;
+}
+
+.right-side-2{
+    grid-area:right-side-2;  
+}
+table{
+    text-align: right;
+    width: 161px;  
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.num{
+    padding-top: 20px;
+    font-size: 40px;
+    color: white;
+}
+.else{
+    font-size: 20px;
+    color: white;
+}
+
+.recent_work{  
+    grid-area:recent_work;
+    padding:5px;
+    background-color:white;
+    text-align: center;   
+}
+.recent_work p{
+    transform: rotate(270deg);
+    font-size:40px;   
+    padding: 10px 5px;
+    font-family: 'Josefin Sans', sans-serif; 
+}
+
+.empty_slider-1{
+    grid-area:empty_slider-1;
+    padding:10px;
+    background-color:white;
+}
+
+.empty_slider-2{
+    grid-area:empty_slider-2;
+    padding:10px;
+    background-color:rgb(32, 32, 32);
+}
+
+.footer{
+    grid-area:footer;
+    padding:20px;
+    background-color:rgb(247, 52, 52);
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.anchor-up img{
+    float: right;
+    height: 40px;
+    width: 40px;
+}
+ 
+.container ul li  {
+  color:#fff;
+  padding-top: 3px;
+  text-decoration: none;
+  list-style-type:none;
+  font-family: 'Josefin Sans', sans-serif; 
+}
+.container ul li a {
+  color:#fff;
+  padding-top: 3px;
+  text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif; 
 }
