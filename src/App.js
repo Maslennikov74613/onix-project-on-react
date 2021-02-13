@@ -1,5 +1,6 @@
 import React from 'react';
- import './App.css';
+import './App.css';
+import logo from './assets/images/hex.png';
 
 class App extends React.Component {
     constructor(){
@@ -16,13 +17,11 @@ class App extends React.Component {
             mainText:'We help to transform your dreams intoreality with quality architecture solutions. From a simple idea, through a complex process to a spectacular result.'
         }
     }
-    changeText = (event)=>{
-        let target = event.target.id;
-        console.log(target);
-        if(this.state.ids.includes(target)) {
-            console.log(this.state.text[target]);
-            this.setState({mainText : this.state.text[target]});
-        };
+    changeText = ({target: {id: targetID}}) => {
+        const {ids, text} = this.state;
+        if(ids.includes(targetID)) {
+            this.setState({mainText : text[targetID]});
+        }
     }
   
   render(){
@@ -31,7 +30,7 @@ class App extends React.Component {
             <body>
                 <div className="empty-header"></div>
                  <header className='header change-color'>
-                      <img className='logo' src="./hex.png" alt="logo"/>
+                      <img className='logo' src={logo} alt="logo"/>
                       <div className="sidebar-top">
                           <div className="sidebar-top-button">CASES</div>
                           <ul className="sidebar-top-content">
@@ -69,7 +68,7 @@ class App extends React.Component {
                     <div id='work' >WORK</div>
                     <div id='system' >SYSTEM</div>                 
                 </div>      
-                <div class='text-area main-text' >
+                <div className='text-area main-text' >
                         {this.state.mainText}
                 </div>
               </main>
@@ -136,8 +135,8 @@ class App extends React.Component {
                     </div>
                     <div>
                         <a href="#anchor-up" className="anchor-up">
-                          <img src="https://cdn.icon-icons.com/icons2/1372/PNG/512/arrow-33_91010.png" alt="anchor-up"/>
-                         </a>
+                            <img src="https://cdn.icon-icons.com/icons2/1372/PNG/512/arrow-33_91010.png" alt="anchor-up"/>
+                        </a>
                     </div>
                           
               </footer>
